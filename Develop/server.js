@@ -31,7 +31,7 @@ app.get('/api/notes', (req, res) =>
 );
 
 app.post('/api/notes', (req, res) => {
-    console.log("req.body",req.body);
+    // console.log("req.body",req.body);
     let response = {
         title: req.body.title,
         text: req.body.text,

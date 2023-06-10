@@ -31,7 +31,8 @@ const getNotes = () =>
     headers: {
       'Content-Type': 'application/json',
     },
-  }).then(console.log("getNotes. Fetch finished"));
+  })
+  // .then(console.log("getNotes. Fetch finished"));
 
 const saveNote = (note) =>
   fetch('/api/notes', {
@@ -40,7 +41,8 @@ const saveNote = (note) =>
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(note),
-  }).then(console.log("saveNote. Fetch finished"));
+  })
+  // .then(console.log("saveNote. Fetch finished"));
 
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
@@ -51,7 +53,7 @@ const deleteNote = (id) =>
   });
 
 const renderActiveNote = () => {
-  console.log("renderActiveNote function")
+  // console.log("renderActiveNote function")
   hide(saveNoteBtn);
 
   if (activeNote.id) {
@@ -68,12 +70,12 @@ const renderActiveNote = () => {
 };
 
 const handleNoteSave = () => {
-  console.log("handleNoteSave function")
+  // console.log("handleNoteSave function")
   const newNote = {
     title: noteTitle.value,
     text: noteText.value,
   };
-  console.log(JSON.stringify(newNote))
+  // console.log(JSON.stringify(newNote))
   saveNote(newNote).then(() => {
     getAndRenderNotes();
     renderActiveNote();
@@ -82,7 +84,7 @@ const handleNoteSave = () => {
 
 // Delete the clicked note
 const handleNoteDelete = (e) => {
-  console.log("handleNoteDelete function")
+  // console.log("handleNoteDelete function")
   // Prevents the click listener for the list from being called when the button inside of it is clicked
   e.stopPropagation();
 
@@ -101,17 +103,15 @@ const handleNoteDelete = (e) => {
 
 // Sets the activeNote and displays it
 const handleNoteView = (e) => {
-  console.log("handleNoteView function")
+  // console.log("handleNoteView function")
   e.preventDefault();
   activeNote = JSON.parse(e.target.parentElement.getAttribute('data-note'));
-  console.log(activeNote)
-  console.log(activeNote.id)
   renderActiveNote(); 
 };
 
 // Sets the activeNote to and empty object and allows the user to enter a new note
 const handleNewNoteView = (e) => {
-  console.log("handleNewNoteView function")
+  // console.log("handleNewNoteView function")
   activeNote = {};
   renderActiveNote();
 };
@@ -126,9 +126,8 @@ const handleRenderSaveBtn = () => {
 
 // Render the list of note titles
 const renderNoteList = async (notes) => {
-  console.log("renderNoteList function")
+  // console.log("renderNoteList function")
   let jsonNotes = await notes.json();
-  console.log(jsonNotes)
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));
   }
@@ -183,7 +182,7 @@ const renderNoteList = async (notes) => {
 // Gets notes from the db and renders them to the sidebar
 const getAndRenderNotes = () => 
 getNotes().then(renderNoteList);
-console.log("getAndRenderNotes function") //HERE 
+// console.log("getAndRenderNotes function") //HERE 
 
 
 if (window.location.pathname === '/notes') {
