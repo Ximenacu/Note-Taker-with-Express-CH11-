@@ -1,38 +1,12 @@
 [
     {
-        "title": "Test Title",
-        "text": "Test text"
+        "title": "Pet Sematary",
+        "text": "The soil of a man's heart is stonier",
+        "id": "a65a"
     },
     {
-        "title": "a note",
-        "text": "a text"
-    },
-    {
-        "title": "2 note",
-        "text": "more text "
-    },
-    {
-        "title": "3 note ",
-        "text": "teeeeeeeeeext"
-    },
-    {
-        "title": "notes",
-        "text": "nooooooootes"
-    },
-    {
-        "title": "omg",
-        "text": "please"
-    },
-    {
-        "title": "help ",
-        "text": "sos"
-    },
-    {
-        "title": "FUCK me",
-        "text": "in the a..."
-    },
-    {
-        "title": "game of thrones",
-        "text": "cersei lannister"
+        "title": "Game of Thrones",
+        "text": "When you play the game of thrones, you win or you die. ",
+        "id": "dc38"
     }
 ]

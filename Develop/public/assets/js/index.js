@@ -82,6 +82,7 @@ const handleNoteSave = () => {
 
 // Delete the clicked note
 const handleNoteDelete = (e) => {
+  console.log("handleNoteDelete function")
   // Prevents the click listener for the list from being called when the button inside of it is clicked
   e.stopPropagation();
 
@@ -100,13 +101,17 @@ const handleNoteDelete = (e) => {
 
 // Sets the activeNote and displays it
 const handleNoteView = (e) => {
+  console.log("handleNoteView function")
   e.preventDefault();
   activeNote = JSON.parse(e.target.parentElement.getAttribute('data-note'));
-  renderActiveNote();
+  console.log(activeNote)
+  console.log(activeNote.id)
+  renderActiveNote(); 
 };
 
 // Sets the activeNote to and empty object and allows the user to enter a new note
 const handleNewNoteView = (e) => {
+  console.log("handleNewNoteView function")
   activeNote = {};
   renderActiveNote();
 };
@@ -122,7 +127,6 @@ const handleRenderSaveBtn = () => {
 // Render the list of note titles
 const renderNoteList = async (notes) => {
   console.log("renderNoteList function")
-  console.log(notes);
   let jsonNotes = await notes.json();
   console.log(jsonNotes)
   if (window.location.pathname === '/notes') {
